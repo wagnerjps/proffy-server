@@ -23,8 +23,8 @@ class ClassesController {
         const timeInMinutes = convertHourToMinutes_1.default(time);
         // Busca dos dados solitados com os filtros
         const classes = await connection_1.default('classes')
-            .whereExists(function () {
-            this.select('class_schedule.*')
+            .whereExists(() => {
+            connection_1.default.select('class_schedule.*')
                 .from('class_schedule')
                 .whereRaw('`class_schedule`.`class_id` = `classes`.`id`')
                 .whereRaw('`class_schedule`.`week_day` = ??', [Number(week_day)])
