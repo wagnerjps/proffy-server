@@ -33,8 +33,8 @@ export default class ClassesController {
 
         // Busca dos dados solitados com os filtros
         const classes = await db('classes')
-            .whereExists(() => {
-                db.select('class_schedule.*')
+            .whereExists(function(){
+                this.select('class_schedule.*')
                     .from('class_schedule')
                     .whereRaw('`class_schedule`.`class_id` = `classes`.`id`')
                     .whereRaw('`class_schedule`.`week_day` = ??', [Number(week_day)])

@@ -4,7 +4,7 @@
   "description": "Aplicação voltada para aulas, backend da aplicação proffy",
   "main": "server.js",
   "scripts": {
-    "start": "node dist/server.js",
+    "start": "node dist/src/server.js",
     "build": "rimraf dist && tsc",
     "dev": "tsnd --transpile-only --ignore-watch node_modules --respawn src/server.ts",
     "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
