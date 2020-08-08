@@ -1,5 +1,4 @@
 require('dotenv').config();
-import path from 'path'
 
 module.exports = {
 
