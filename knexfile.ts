@@ -19,5 +19,5 @@ module.exports = {
         migrations: {
             tableName: `${__dirname}/src/database/migrations`
         }
-        }
+    }
 };

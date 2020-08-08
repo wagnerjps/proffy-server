@@ -1,12 +1,12 @@
+require('dotenv').config();
 import knex from 'knex'
-import path from 'path'
 
-const db = knex({
-    client: 'sqlite3',
-    connection: {
-        filename: path.resolve(__dirname, 'database.sqlite')
-    },
-    useNullAsDefault: true,
-})
+const configuration = require("../../knexfile");
+
+const env = process.env.NODE_ENV;
+
+const config = (env === 'production') ? configuration.production : configuration.development;
+
+const db = knex(config);
 
 export default db;
